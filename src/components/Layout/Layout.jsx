@@ -1,12 +1,14 @@
-import { Outlet, useLocation } from "react-router";
+import { Outlet, useMatches } from "react-router";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 
 function Layout() {
-  const { pathname } = useLocation();
+  const matches = useMatches();
 
-  const specialPages = ["/sign-in", "/profile"];
-  const mainClass = specialPages.includes(pathname) ? "bg-dark" : "";
+  const currentMatch = matches[matches.length - 1];
+  const isSpecial = currentMatch?.handle?.special || false;
+
+  const mainClass = isSpecial ? "bg-dark" : "";
 
   return (
     <>

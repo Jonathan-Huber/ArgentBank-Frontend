@@ -1,0 +1,23 @@
+@use "../../styles/mixin.scss" as m;
+
+.not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin: 35px auto;
+    color: #fff;
+
+    & h1 {
+        font-size: 100px;
+
+        @include m.respond-to(tablet) {
+            font-size: 200px;
+        }
+    }
+
+    & a {
+        text-decoration: none;
+    }
+}
