@@ -41,7 +41,7 @@ function Header() {
         <div className="navbar__items">
           <Link to="/profile" className="navbar__item">
             <FontAwesomeIcon icon={faCircleUser} />
-            Tony
+            Iron
           </Link>
           <Link to="/" className="navbar__item">
             <FontAwesomeIcon icon={faRightFromBracket} />
