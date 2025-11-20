@@ -7,6 +7,7 @@ function Field({
   options = [],
   placeholder,
   required = false,
+  ...rest
 }) {
   if (type === "select") {
     return (
@@ -17,6 +18,7 @@ function Field({
           value={value || ""}
           onChange={onChange}
           required={required}
+          {...rest}
         >
           <option value="">-- Sélectionner --</option>
           {options.map((opt) => (
@@ -39,6 +41,7 @@ function Field({
           onChange={onChange}
           placeholder={placeholder}
           required={required}
+          {...rest}
         />
       </div>
     );
@@ -52,6 +55,7 @@ function Field({
           id={id}
           checked={!!value}
           onChange={(e) => onChange(e.target.checked)}
+          {...rest}
         />
         <label htmlFor={id}>{label}</label>
       </div>
@@ -69,6 +73,7 @@ function Field({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
+        {...rest}
       />
     </div>
   );
