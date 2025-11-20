@@ -1,31 +1,32 @@
 @use "../../styles/mixin.scss" as m;
+@use "sass:color";
 
 .btn {
-  color: #fff;
-  background-color: #00bc77;
-  border-color: #00bc77;
-  font-weight: bold;
-  transition: background-color 0.2s ease;
-  
-  &:hover {
-    background-color: darken(#00bc77, 10%); // si tu utilises Sass
-    cursor: pointer;
-  }
-
-  /* Variantes spécifiques */
-
-/* transaction-button et sign-in-button */
-&-block { 
-  display: block;
-  width: 100%;
-  padding: 8px;
-  font-size: 1.1rem;
-  margin-top: 1rem;
-  &--720 {
-    @include m.respond-to(tablet) {
-      width: 200px;
+    color: #fff;
+    background-color: #00bc77;
+    border-color: #00bc77;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    
+    &:hover {
+        background-color: color.adjust(#00bc77, $lightness: -10%);
+        cursor: pointer;
     }
-  }
-}
+
+    /* Variantes spécifiques */
+
+    /* transaction-button et sign-in-button */
+    &-block { 
+        display: block;
+        width: 100%;
+        padding: 8px;
+        font-size: 1.1rem;
+        margin-top: 1rem;
+        &--720 {
+            @include m.respond-to(tablet) {
+            width: 200px;
+            }
+        }
+    }
 
 }

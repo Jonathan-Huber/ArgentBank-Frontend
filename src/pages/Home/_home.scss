@@ -1,9 +1,9 @@
 @use "../../styles/mixin.scss" as m;
 
 .features {
-  display: flex;
-  flex-direction: column;
-  @include m.respond-to(desktop) {
+    display: flex;
+    flex-direction: column;
+    @include m.respond-to(desktop) {
         flex-direction: row;
     }
 }
