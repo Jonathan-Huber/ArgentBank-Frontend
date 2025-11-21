@@ -1,13 +1,13 @@
 import "./_home.scss";
 
 import features from "../../data/features";
-import Hero from "../../components/Hero/Hero";
+import Hero from "../../components/Home/Hero/Hero";
 
 import hero400 from "../../assets/images/hero-400.webp";
 import hero800 from "../../assets/images/hero-800.webp";
 import hero1200 from "../../assets/images/hero-1200.webp";
 import hero1600 from "../../assets/images/hero-1600.webp";
-import FeatureList from "../../components/FeatureList/FeatureList";
+import FeatureList from "../../components/Home/FeatureList/FeatureList";
 
 function Home() {
   return (

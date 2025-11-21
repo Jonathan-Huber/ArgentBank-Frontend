@@ -1,4 +1,4 @@
-import Account from "../Account/Account";
+import Account from "../../UserProfile/Account/Account";
 
 function AccountList({ accounts }) {
   return (

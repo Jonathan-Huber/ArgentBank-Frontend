@@ -1,6 +1,6 @@
-import UserInfo from "../../components/UserInfo/UserInfo";
+import UserInfo from "../../components/UserProfile/UserInfo/UserInfo";
 import accounts from "../../data/accounts";
-import AccountList from "../../components/AccountList/AccountList";
+import AccountList from "../../components/UserProfile/AccountList/AccountList";
 import "./_userprofile.scss";
 
 function UserProfile() {

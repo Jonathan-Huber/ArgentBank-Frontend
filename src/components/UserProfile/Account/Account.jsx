@@ -1,4 +1,4 @@
-import Button from "../Button/Button";
+import Button from "../../Button/Button";
 import "./account.scss";
 
 function Account({ title, amount, description }) {
