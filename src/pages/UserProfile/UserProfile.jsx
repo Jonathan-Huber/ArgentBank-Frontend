@@ -1,13 +1,14 @@
 import UserInfo from "../../components/UserProfile/UserInfo/UserInfo";
 import accounts from "../../data/accounts";
-import AccountList from "../../components/UserProfile/AccountList/AccountList";
+import ItemList from "../../components/ItemList/ItemList";
+import Account from "../../components/UserProfile/Account/Account";
 import "./_userprofile.scss";
 
 function UserProfile() {
   return (
     <div className="user-profile">
       <UserInfo />
-      <AccountList accounts={accounts} />
+      <ItemList items={accounts} Component={Account} />
     </div>
   );
 }

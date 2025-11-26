@@ -7,7 +7,8 @@ import hero400 from "../../assets/images/hero-400.webp";
 import hero800 from "../../assets/images/hero-800.webp";
 import hero1200 from "../../assets/images/hero-1200.webp";
 import hero1600 from "../../assets/images/hero-1600.webp";
-import FeatureList from "../../components/Home/FeatureList/FeatureList";
+import ItemList from "../../components/ItemList/ItemList";
+import Feature from "../../components/Home/Feature/Feature";
 
 function Home() {
   return (
@@ -23,7 +24,7 @@ function Home() {
         text="Open a savings account with Argent Bank today!"
       />
       <section className="features">
-        <FeatureList items={features} />
+        <ItemList items={features} Component={Feature} />
       </section>
     </>
   );
