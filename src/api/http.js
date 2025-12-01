@@ -17,7 +17,9 @@ export async function http(endpoint, method = "GET", body, token) {
   const data = await res.json().catch(() => null);
 
   if (!res.ok) {
-    throw new Error(data?.message || "Erreur API");
+    const error = new Error(data?.message || "Erreur API");
+    error.status = res.status;
+    throw error;
   }
 
   return data;
