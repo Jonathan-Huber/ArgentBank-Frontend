@@ -1,4 +1,5 @@
-import { Link, useLocation } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCircleUser,
@@ -7,11 +8,20 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import logo1x from "../../assets/images/argentBankLogo.png";
 import logo2x from "../../assets/images/argentBankLogo@2x.png";
+import { logout } from "../../store/userSlice";
 import "./_header.scss";
 
 function Header() {
   const location = useLocation();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const { isLoggedIn, info } = useSelector((state) => state.user);
   const isHome = location.pathname === "/";
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/sign-in");
+  };
 
   return (
     <header>
@@ -39,18 +49,23 @@ function Header() {
         )}
 
         <div className="navbar__items">
-          <Link to="/profile" className="navbar__item">
-            <FontAwesomeIcon icon={faCircleUser} />
-            Iron
-          </Link>
-          <Link to="/" className="navbar__item">
-            <FontAwesomeIcon icon={faRightFromBracket} />
-            Sign Out
-          </Link>
-          <Link to="/sign-in" className="navbar__item">
-            <FontAwesomeIcon icon={faRightToBracket} />
-            Sign In
-          </Link>
+          {isLoggedIn ? (
+            <>
+              <Link to="/profile" className="navbar__item">
+                <FontAwesomeIcon icon={faCircleUser} />
+                {info?.userName}
+              </Link>
+              <button onClick={handleLogout} className="navbar__item">
+                <FontAwesomeIcon icon={faRightFromBracket} />
+                Sign Out
+              </button>
+            </>
+          ) : (
+            <Link to="/sign-in" className="navbar__item">
+              <FontAwesomeIcon icon={faRightToBracket} />
+              Sign In
+            </Link>
+          )}
         </div>
       </nav>
     </header>
