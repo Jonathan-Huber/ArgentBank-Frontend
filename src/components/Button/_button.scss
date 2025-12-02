@@ -6,11 +6,25 @@
     background-color: #00bc77;
     border-color: #00bc77;
     font-weight: bold;
+    border-radius: 10px;
     transition: background-color 0.2s ease;
     
     &:hover {
         background-color: color.adjust(#00bc77, $lightness: -10%);
         cursor: pointer;
+    }
+
+    &:disabled {
+        background-color: #444;
+        border-color: #555;
+        cursor: default;
+        pointer-events: none;
+        color: #888;
+
+        &:hover {
+            background-color: #444;
+            color: #888;
+        }
     }
 
     /* Variantes spécifiques */

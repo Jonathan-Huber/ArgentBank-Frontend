@@ -3,15 +3,21 @@
     flex-direction: column;
     gap: 30px;
     color: #fff;
-    width: 250px;
+    width: 255px;
     margin: 0 auto;
     padding: 2em 0;
 
     &__edit-form {
         display: flex;
         flex-direction: column;
-        gap: 5px;
+        gap: 10px;
         width: 100%;
+
+        .collapse__content {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
 
         & input {
             padding: 5px;
@@ -26,21 +32,52 @@
         }
     }
 
+    &__welcome-container {
+        display: flex;
+        align-items: center;
+        position: relative;
+        min-height: 3.5em;
+    }
+
     &__welcome {
+        position: absolute;
+        left: 0;
+        right: 0;
+        text-align: center;
+        opacity: 0;
+        transition: opacity 400ms ease-in-out;
         margin: 0;
         color: #fff;
         font-size: 2em;
         font-weight: bold;
+
+        &--visible {
+        opacity: 1;
+        transition: opacity 400ms ease-in-out;
+        }
     }
 
     &__buttons{
+        position: relative;
         display: flex;
         justify-content: center;
         gap: 20px;
         width: 100%;
+        margin-top: 10px;
+
         & .btn {
+            position: absolute;
             padding: 10px;
             width: 50%;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        & .btn--visible {
+            position: static;
+            opacity: 1;
+            transition: opacity 600ms ease-in-out;
+            pointer-events: auto;
         }
     }
 }
