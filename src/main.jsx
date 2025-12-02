@@ -7,10 +7,14 @@ import App from "./App.jsx";
 import { Provider } from "react-redux";
 import store from "./store/store.js";
 
+import AppInitializer from "./components/AppInitializer/AppInitializer.jsx";
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Provider store={store}>
-      <App />
+      <AppInitializer>
+        <App />
+      </AppInitializer>
     </Provider>
   </StrictMode>
 );
