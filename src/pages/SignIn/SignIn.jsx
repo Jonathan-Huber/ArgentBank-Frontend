@@ -1,20 +1,40 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import Field from "../../components/Field/Field";
 import Button from "../../components/Button/Button";
+import { fetchUser, loginUser } from "../../store/userSlice";
 import "./_signin.scss";
+import { CheckboxField, Field } from "../../components/Field/Fields";
 
 function SignIn() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { statusLogin, errorLogin, isLoggedIn } = useSelector(
+    (state) => state.user
+  );
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log({ username, password, remember });
-    // logique de connexion
+    dispatch(loginUser({ email: username, password, remember })).then(
+      (action) => {
+        if (loginUser.fulfilled.match(action)) {
+          dispatch(fetchUser(action.payload.body.token));
+        }
+      }
+    );
   };
+
+  useEffect(() => {
+    if (isLoggedIn) {
+      navigate("/profile");
+    }
+  }, [isLoggedIn, navigate]);
 
   return (
     <section className="sign-in">
@@ -39,17 +59,18 @@ function SignIn() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
           />
-          <Field
+          <CheckboxField
             id="remember-me"
             label="Remember me"
-            type="checkbox"
-            value={remember}
+            checked={remember}
             onChange={setRemember}
           />
           <Button type="submit" className="btn-block">
             Sign In
           </Button>
         </form>
+        {statusLogin === "loading" && <p>Connecting...</p>}
+        {statusLogin === "failed" && <p>{errorLogin}</p>}
       </div>
     </section>
   );
