@@ -7,10 +7,14 @@ import "./userinfo.scss";
 import { updateUsername } from "../../../store/userSlice";
 import Collapse from "../../Collapse/Collapse";
 import { Field } from "../../Field/Fields";
+import Loading from "../../Loading/Loading";
 
 function UserInfo() {
   const dispatch = useDispatch();
-  const { info } = useSelector((state) => state.user);
+
+  const { info, statusUpdate, errorUpdate } = useSelector(
+    (state) => state.user
+  );
 
   const [editing, setEditing] = useState(false);
   const [username, setUsername] = useState("");
@@ -21,7 +25,8 @@ function UserInfo() {
   const token =
     localStorage.getItem("token") || sessionStorage.getItem("token");
 
-  const isSaveDisabled = !username || username === info.userName;
+  const isSaveDisabled =
+    !username || username === info.userName || statusUpdate === "loading";
 
   const handleSave = (e) => {
     e.preventDefault();
@@ -29,12 +34,13 @@ function UserInfo() {
     if (isSaveDisabled) return;
 
     dispatch(updateUsername({ token, username: username.trim() }));
-    setEditing(false);
+    // setEditing(false);
   };
 
   return (
     <div className="user-info">
       <h1 className="sr-only">Accounts</h1>
+
       <div className="user-info__welcome-container">
         <p
           className={`user-info__welcome ${
@@ -45,6 +51,7 @@ function UserInfo() {
           <br />
           {firstname} {lastname}!
         </p>
+
         <p
           className={`user-info__welcome ${
             editing ? "user-info__welcome--visible" : ""
@@ -86,16 +93,22 @@ function UserInfo() {
             className={editing ? "btn--visible" : ""}
             disabled={isSaveDisabled}
           >
-            Save
+            <span className="btn-content">
+              {statusUpdate === "loading" ? <Loading size="small" /> : "Save"}
+            </span>
           </Button>
           <Button
             type="button"
             className={editing ? "btn--visible" : ""}
             onClick={() => setEditing(false)}
+            disabled={statusUpdate === "loading"}
           >
             Cancel
           </Button>
         </div>
+        {statusUpdate === "failed" && (
+          <p className="user-info__error">{errorUpdate}</p>
+        )}
       </form>
     </div>
   );

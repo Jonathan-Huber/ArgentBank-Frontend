@@ -79,5 +79,11 @@
             transition: opacity 600ms ease-in-out;
             pointer-events: auto;
         }
+
+        .btn-content {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
     }
 }
