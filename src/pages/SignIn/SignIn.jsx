@@ -7,6 +7,7 @@ import Button from "../../components/Button/Button";
 import { fetchUser, loginUser } from "../../store/userSlice";
 import "./_signin.scss";
 import { CheckboxField, Field } from "../../components/Field/Fields";
+import Loading from "../../components/Loading/Loading";
 
 function SignIn() {
   const [username, setUsername] = useState("");
@@ -65,11 +66,17 @@ function SignIn() {
             checked={remember}
             onChange={setRemember}
           />
-          <Button type="submit" className="btn-block">
-            Sign In
+          <Button
+            type="submit"
+            className="btn-block"
+            disabled={statusLogin === "loading"}
+          >
+            <span className="btn-content">
+              {statusLogin === "loading" && <Loading size="small" />}
+              {statusLogin === "loading" ? "Connecting..." : "Sign In"}
+            </span>
           </Button>
         </form>
-        {statusLogin === "loading" && <p>Connecting...</p>}
         {statusLogin === "failed" && <p>{errorLogin}</p>}
       </div>
     </section>
