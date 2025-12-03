@@ -1,11 +1,16 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
+import "./_protectedroute.scss";
 
 function ProtectedRoute({ children }) {
   const { isLoggedIn, statusProfile } = useSelector((state) => state.user);
 
   if (statusProfile === "loading") {
-    return null;
+    return (
+      <div className="centered-loader">
+        <Loading />
+      </div>
+    );
   }
 
   if (!isLoggedIn) {
