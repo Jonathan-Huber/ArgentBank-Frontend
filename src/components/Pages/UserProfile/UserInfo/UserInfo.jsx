@@ -1,13 +1,13 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import Button from "../../Button/Button";
+import Button from "../../../ui/Button/Button";
 
 import "./UserInfo.scss";
-import { updateUsername } from "../../../store/userSlice";
-import Collapse from "../../Collapse/Collapse";
-import { Field } from "../../Field/Fields";
-import Loading from "../../Loading/Loading";
+import { updateUsername } from "../../../../store/userSlice";
+import Collapse from "../../../ui/Collapse/Collapse";
+import { Field } from "../../../ui/Field/Fields";
+import Loading from "../../../ui/Loading/Loading";
 
 function UserInfo() {
   const dispatch = useDispatch();

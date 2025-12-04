@@ -3,8 +3,8 @@ import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import NotFound from "./pages/Notfound/NotFound";
-import Layout from "./components/Layout/Layout";
-import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
+import Layout from "./components/Layouts/Layout/Layout";
+import ProtectedRoute from "./components/ui/ProtectedRoute/ProtectedRoute";
 
 const router = createBrowserRouter([
   {

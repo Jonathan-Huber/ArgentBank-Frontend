@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import Button from "../../components/Button/Button";
+import Button from "../../components/ui/Button/Button";
 import { fetchUser, loginUser } from "../../store/userSlice";
 import "./SignIn.scss";
-import { CheckboxField, Field } from "../../components/Field/Fields";
-import Loading from "../../components/Loading/Loading";
+import { CheckboxField, Field } from "../../components/ui/Field/Fields";
+import Loading from "../../components/ui/Loading/Loading";
 
 function SignIn() {
   const [username, setUsername] = useState("");
