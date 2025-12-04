@@ -1,4 +1,4 @@
-import "./_feature.scss";
+import "./Feature.scss";
 
 function Feature({ src, srcSet, width, height, alt, title, text }) {
   return (

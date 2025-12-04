@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
-import "./_protectedroute.scss";
+import "./ProtectedRoute.scss";
 
 function ProtectedRoute({ children }) {
   const { isLoggedIn, statusProfile } = useSelector((state) => state.user);

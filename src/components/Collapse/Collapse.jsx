@@ -1,4 +1,4 @@
-import "./_collapse.scss";
+import "./Collapse.scss";
 
 function Collapse({ isOpen, children }) {
   return (

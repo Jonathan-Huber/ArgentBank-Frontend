@@ -1,4 +1,4 @@
-import "./_home.scss";
+import "./Home.scss";
 
 import features from "../../data/features";
 import Hero from "../../components/Home/Hero/Hero";

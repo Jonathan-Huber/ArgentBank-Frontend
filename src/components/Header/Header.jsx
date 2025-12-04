@@ -9,7 +9,7 @@ import {
 import logo1x from "../../assets/images/argentBankLogo.png";
 import logo2x from "../../assets/images/argentBankLogo@2x.png";
 import { logout } from "../../store/userSlice";
-import "./_header.scss";
+import "./Header.scss";
 
 function Header() {
   const location = useLocation();

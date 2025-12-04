@@ -1,4 +1,4 @@
-import "./_hero.scss";
+import "./Hero.scss";
 
 function Hero({ src, srcSet, width, height, alt, title, subtitles, text }) {
   return (

@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 import Button from "../../components/Button/Button";
 import { fetchUser, loginUser } from "../../store/userSlice";
-import "./_signin.scss";
+import "./SignIn.scss";
 import { CheckboxField, Field } from "../../components/Field/Fields";
 import Loading from "../../components/Loading/Loading";
 

@@ -1,4 +1,4 @@
-import "./_button.scss";
+import "./Button.scss";
 
 function Button({
   children,

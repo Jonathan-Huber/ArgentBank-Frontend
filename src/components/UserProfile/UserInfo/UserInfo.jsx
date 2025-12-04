@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Button from "../../Button/Button";
 
-import "./userinfo.scss";
+import "./UserInfo.scss";
 import { updateUsername } from "../../../store/userSlice";
 import Collapse from "../../Collapse/Collapse";
 import { Field } from "../../Field/Fields";

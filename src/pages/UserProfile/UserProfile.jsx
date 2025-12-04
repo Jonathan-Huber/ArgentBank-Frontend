@@ -2,7 +2,7 @@ import UserInfo from "../../components/UserProfile/UserInfo/UserInfo";
 import accounts from "../../data/accounts";
 import ItemList from "../../components/ItemList/ItemList";
 import Account from "../../components/UserProfile/Account/Account";
-import "./_userprofile.scss";
+import "./UserProfile.scss";
 
 function UserProfile() {
   return (
