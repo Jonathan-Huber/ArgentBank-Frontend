@@ -151,7 +151,6 @@ const userSlice = createSlice({
       })
       .addCase(signupUser.fulfilled, (state, action) => {
         state.statusSignup = "succeeded";
-        state.isLoggedIn = true;
         state.info = action.payload.body;
       })
       .addCase(signupUser.rejected, (state, action) => {
