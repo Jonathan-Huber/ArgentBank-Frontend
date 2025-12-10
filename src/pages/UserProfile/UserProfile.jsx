@@ -1,8 +1,10 @@
+import "./UserProfile.scss";
+
 import UserInfo from "../../components/Pages/UserProfile/UserInfo/UserInfo";
-import accounts from "../../data/accounts";
 import ItemList from "../../components/ui/ItemList/ItemList";
 import Account from "../../components/Pages/UserProfile/Account/Account";
-import "./UserProfile.scss";
+
+import accounts from "../../data/accounts";
 
 function UserProfile() {
   return (

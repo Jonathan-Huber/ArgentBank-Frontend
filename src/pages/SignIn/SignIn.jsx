@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
+import { useDispatch, useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
-import Button from "../../components/ui/Button/Button";
-import { fetchUser, loginUser } from "../../store/userSlice";
+
 import "./SignIn.scss";
+
+import Button from "../../components/ui/Button/Button";
 import { CheckboxField, Field } from "../../components/ui/Field/Fields";
 import Loading from "../../components/ui/Loading/Loading";
+
+import { fetchUser, loginUser } from "../../store/userSlice";
 
 function SignIn() {
   const [username, setUsername] = useState("");

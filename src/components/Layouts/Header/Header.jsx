@@ -6,10 +6,13 @@ import {
   faRightToBracket,
   faRightFromBracket,
 } from "@fortawesome/free-solid-svg-icons";
+
+import "./Header.scss";
+
+import { logout } from "../../../store/userSlice";
+
 import logo1x from "../../../assets/images/argentBankLogo.png";
 import logo2x from "../../../assets/images/argentBankLogo@2x.png";
-import { logout } from "../../../store/userSlice";
-import "./Header.scss";
 
 function Header() {
   const location = useLocation();

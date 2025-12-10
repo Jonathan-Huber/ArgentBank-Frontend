@@ -1,6 +1,8 @@
 import { Link } from "react-router";
-import Button from "../../components/ui/Button/Button";
+
 import "./Notfound.scss";
+
+import Button from "../../components/ui/Button/Button";
 
 function NotFound() {
   return (

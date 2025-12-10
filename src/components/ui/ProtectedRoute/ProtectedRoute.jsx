@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
+
 import "./ProtectedRoute.scss";
 
 function ProtectedRoute({ children }) {

@@ -1,5 +1,6 @@
-import Button from "../../../ui/Button/Button";
 import "./Account.scss";
+
+import Button from "../../../ui/Button/Button";
 
 function Account({ title, amount, description }) {
   return (

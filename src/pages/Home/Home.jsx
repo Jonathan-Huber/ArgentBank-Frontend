@@ -1,14 +1,14 @@
 import "./Home.scss";
 
-import features from "../../data/features";
 import Hero from "../../components/Pages/Home/Hero/Hero";
+import ItemList from "../../components/ui/ItemList/ItemList";
+import Feature from "../../components/Pages/Home/Feature/Feature";
 
 import hero400 from "../../assets/images/hero-400.webp";
 import hero800 from "../../assets/images/hero-800.webp";
 import hero1200 from "../../assets/images/hero-1200.webp";
 import hero1600 from "../../assets/images/hero-1600.webp";
-import ItemList from "../../components/ui/ItemList/ItemList";
-import Feature from "../../components/Pages/Home/Feature/Feature";
+import features from "../../data/features";
 
 function Home() {
   return (

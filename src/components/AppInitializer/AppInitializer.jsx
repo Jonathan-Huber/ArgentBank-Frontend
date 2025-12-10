@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+
 import { fetchUser } from "../../store/userSlice";
 
 function AppInitializer({ children }) {
