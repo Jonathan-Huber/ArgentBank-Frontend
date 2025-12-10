@@ -13,7 +13,7 @@ import Loading from "../../components/ui/Loading/Loading";
 import { fetchUser, loginUser } from "../../store/userSlice";
 
 function SignIn() {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [remember, setRemember] = useState(false);
 
@@ -25,13 +25,11 @@ function SignIn() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    dispatch(loginUser({ email: username, password, remember })).then(
-      (action) => {
-        if (loginUser.fulfilled.match(action)) {
-          dispatch(fetchUser(action.payload.body.token));
-        }
+    dispatch(loginUser({ email, password, remember })).then((action) => {
+      if (loginUser.fulfilled.match(action)) {
+        dispatch(fetchUser(action.payload.body.token));
       }
-    );
+    });
   };
 
   useEffect(() => {
@@ -51,10 +49,10 @@ function SignIn() {
         <h1>Sign In</h1>
         <form onSubmit={handleSubmit}>
           <Field
-            id="username"
-            label="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
+            id="email"
+            label="Email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
           <Field
             id="password"
