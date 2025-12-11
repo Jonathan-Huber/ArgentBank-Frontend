@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import "./UserInfo.scss";
@@ -35,8 +35,13 @@ function UserInfo() {
     if (isSaveDisabled) return;
 
     dispatch(updateUsername({ token, username: username.trim() }));
-    // setEditing(false);
   };
+
+  useEffect(() => {
+    if (statusUpdate === "succeeded") {
+      setEditing(false);
+    }
+  }, [statusUpdate]);
 
   return (
     <div className="user-info">
