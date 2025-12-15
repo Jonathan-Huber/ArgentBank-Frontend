@@ -9,7 +9,11 @@ import {
 
 import "./Header.scss";
 
-import { logout } from "../../../store/userSlice";
+import {
+  logout,
+  selectIsLoggedIn,
+  selectUserName,
+} from "../../../store/userSlice";
 
 import logo1x from "../../../assets/images/argentBankLogo.png";
 import logo2x from "../../../assets/images/argentBankLogo@2x.png";
@@ -17,8 +21,11 @@ import logo2x from "../../../assets/images/argentBankLogo@2x.png";
 function Header() {
   const location = useLocation();
   const navigate = useNavigate();
+
   const dispatch = useDispatch();
-  const { isLoggedIn, info } = useSelector((state) => state.user);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const userName = useSelector(selectUserName);
+
   const isHome = location.pathname === "/";
 
   const handleLogout = () => {
@@ -56,7 +63,7 @@ function Header() {
             <>
               <Link to="/profile" className="navbar__item">
                 <FontAwesomeIcon icon={faCircleUser} />
-                {info?.userName}
+                {userName}
               </Link>
               <button onClick={handleLogout} className="navbar__item">
                 <FontAwesomeIcon icon={faRightFromBracket} />
