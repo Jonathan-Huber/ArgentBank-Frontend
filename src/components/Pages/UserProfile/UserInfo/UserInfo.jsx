@@ -8,14 +8,18 @@ import Collapse from "../../../ui/Collapse/Collapse";
 import Loading from "../../../ui/Loading/Loading";
 import { Field } from "../../../ui/Field/Fields";
 
-import { updateUsername } from "../../../../store/userSlice";
+import {
+  selectToken,
+  selectUserInfo,
+  updateUsername,
+} from "../../../../store/userSlice";
 
 function UserInfo() {
   const dispatch = useDispatch();
 
-  const { info, statusUpdate, errorUpdate } = useSelector(
-    (state) => state.user
-  );
+  const info = useSelector(selectUserInfo);
+  const token = useSelector(selectToken);
+  const { statusUpdate, errorUpdate } = useSelector((state) => state.user);
 
   const [editing, setEditing] = useState(false);
   const [username, setUsername] = useState("");
@@ -23,11 +27,8 @@ function UserInfo() {
   const firstname = info?.firstName;
   const lastname = info?.lastName;
 
-  const token =
-    localStorage.getItem("token") || sessionStorage.getItem("token");
-
   const isSaveDisabled =
-    !username || username === info.userName || statusUpdate === "loading";
+    !username || username === info?.userName || statusUpdate === "loading";
 
   const handleSave = (e) => {
     e.preventDefault();
