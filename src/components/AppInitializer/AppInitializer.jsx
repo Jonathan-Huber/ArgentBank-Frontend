@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { fetchUser } from "../../store/userSlice";
+import { fetchUser, setToken } from "../../store/userSlice";
 
 function AppInitializer({ children }) {
   const dispatch = useDispatch();
@@ -15,6 +15,7 @@ function AppInitializer({ children }) {
 
   useEffect(() => {
     if (token) {
+      dispatch(setToken(token));
       dispatch(fetchUser(token));
     }
   }, [dispatch, token]);
