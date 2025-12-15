@@ -73,7 +73,6 @@ export const updateUsername = createAsyncThunk(
 const initialState = {
   info: null,
   token: null,
-  isLoggedIn: false,
 
   // loginUser
   statusLogin: "idle",
@@ -98,10 +97,12 @@ const userSlice = createSlice({
   name: "user",
   initialState,
   reducers: {
+    setToken: (state, action) => {
+      state.token = action.payload;
+    },
     logout: (state) => {
       state.info = null;
       state.token = null;
-      state.isLoggedIn = false;
 
       state.statusLogin = "idle";
       state.errorLogin = null;
@@ -125,7 +126,6 @@ const userSlice = createSlice({
       })
       .addCase(loginUser.fulfilled, (state, action) => {
         state.statusLogin = "succeeded";
-        state.isLoggedIn = true;
         state.token = action.payload.body.token;
         if (action.meta.arg.remember) {
           localStorage.setItem("token", action.payload.body.token);
@@ -172,7 +172,6 @@ const userSlice = createSlice({
       .addCase(fetchUser.fulfilled, (state, action) => {
         state.statusProfile = "succeeded";
         state.info = action.payload.body;
-        state.isLoggedIn = true;
       })
       .addCase(fetchUser.rejected, (state, action) => {
         state.statusProfile = "failed";
@@ -217,5 +216,18 @@ const userSlice = createSlice({
   },
 });
 
-export const { logout } = userSlice.actions;
+export const { setToken, logout } = userSlice.actions;
+
+// Selector indiquant si l'utilisateur est connecté (présence d'un token)
+export const selectIsLoggedIn = (state) => state.user.token !== null;
+
+// Selector pour le token
+export const selectToken = (state) => state.user.token;
+
+// Selector pour l'objet info complet
+export const selectUserInfo = (state) => state.user.info;
+
+// Selector pour le nom d'utilisateur
+export const selectUserName = (state) => state.user.info?.userName ?? "";
+
 export default userSlice.reducer;
