@@ -10,7 +10,7 @@ import Button from "../../components/ui/Button/Button";
 import { CheckboxField, Field } from "../../components/ui/Field/Fields";
 import Loading from "../../components/ui/Loading/Loading";
 
-import { fetchUser, loginUser } from "../../store/userSlice";
+import { fetchUser, loginUser, selectIsLoggedIn } from "../../store/userSlice";
 
 function SignIn() {
   const [email, setEmail] = useState("");
@@ -19,9 +19,8 @@ function SignIn() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { statusLogin, errorLogin, isLoggedIn } = useSelector(
-    (state) => state.user
-  );
+  const { statusLogin, errorLogin } = useSelector((state) => state.user);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   const handleSubmit = (e) => {
     e.preventDefault();
