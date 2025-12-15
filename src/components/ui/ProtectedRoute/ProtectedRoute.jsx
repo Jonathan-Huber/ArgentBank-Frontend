@@ -1,8 +1,10 @@
 import { useSelector } from "react-redux";
 import { Navigate } from "react-router";
+import { selectIsLoggedIn } from "../../../store/userSlice";
 
 function ProtectedRoute({ children }) {
-  const { isLoggedIn, statusProfile } = useSelector((state) => state.user);
+  const { statusProfile } = useSelector((state) => state.user);
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   if (statusProfile === "loading") {
     return null;
