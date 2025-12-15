@@ -29,7 +29,7 @@ Le travail comprend à la fois l’intégration des pages et de la navigation av
 
 ## Statut
 
-En développement
+Finalisé et validé en soutenance le 12/12/2025
 
 ## Pré-requis
 
